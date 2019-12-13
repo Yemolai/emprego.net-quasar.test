@@ -5,7 +5,7 @@
       v-if="counterValue"
       color="red"
       floating>
-      {{counterValue}}
+      &nbsp;
     </q-badge>
     <slot>
       <span>Menu Item</span>
@@ -53,5 +53,7 @@ export default {
 }
 .round-badge {
   border-radius: 50%;
+  width: 12px;
+  height: 12px;
 }
 </style>

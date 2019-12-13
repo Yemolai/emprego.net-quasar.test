@@ -28,6 +28,9 @@
         </template>
       </q-banner>
     </template>
+    <div class="text-center text-dark" style="width: 100%">
+      <a class="text-dark text-bold" href="#">Ver todos</a>
+    </div>
   </div>
 </template>
 

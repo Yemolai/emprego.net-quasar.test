@@ -1,15 +1,16 @@
 <template>
   <q-page padding>
     <div class="row q-mx-md">
-      <div class="col-9">
+      <div class="col-xs-12 col-sm-8 col-md-9">
         <Alerts :list="alerts" />
         <h2 class="text-h2 q-ml-md q-mb-none">
           Processos em andamento
         </h2>
         <Processes :list="ongoingProcesses" />
       </div>
-      <div class="col-3">
-        <!-- here the sidebar -->
+      <div class="gt-xs col-sm-4 col-md-3">
+        <CurriculumAlert/>
+        <CalendarEvents :list="events" />
       </div>
     </div>
   </q-page>
@@ -17,13 +18,17 @@
 
 <script>
 import Alerts from 'components/Alerts'
+import CalendarEvents from 'components/CalendarEvents'
+import CurriculumAlert from 'components/CurriculumAlert'
 import Processes from 'components/Processes'
+import moment from 'moment'
 
-const oneDay = 24 * 60 * 1000
+const oneMinute = 60 * 1000
+const oneDay = 24 * 60 * oneMinute
 
 export default {
   name: 'CandidateHome',
-  components: { Alerts, Processes },
+  components: { Alerts, CalendarEvents, CurriculumAlert, Processes },
   data () {
     return {
       alerts: [
@@ -70,6 +75,23 @@ export default {
           position: 'UX Designer Pleno',
           openCount: 2,
           status: 'pending'
+        }
+      ],
+      events: [
+        {
+          type: 'interview',
+          id: Math.random().toString(36).slice(2),
+          date: moment().set('hours', 15).set('minutes', 40),
+          duration: 30 * oneMinute,
+          title: 'Vendedor de veículos semi novos',
+          company: 'Motor Sport Veículos'
+        }, {
+          type: 'interview',
+          id: Math.random().toString(36).slice(2),
+          date: moment().set('hours', 15).set('minutes', 40).add(1, 'days'),
+          duration: 30 * oneMinute,
+          title: 'Vendedor de veículos semi novos',
+          company: 'Motor Sport Veículos'
         }
       ]
     }

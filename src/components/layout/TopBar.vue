@@ -67,7 +67,11 @@ export default {
     }
   },
   data () {
-    return { messages: 0, calendar: 0, notifications: 5 }
+    return {
+      messages: 0,
+      calendar: 0,
+      notifications: 5
+    }
   },
   methods: {
     toggleTopBar () {

@@ -1,7 +1,17 @@
 <template>
   <q-page padding>
-    <Alerts :list="alerts" />
-    <Processes :list="ongoingProcesses" />
+    <div class="row q-mx-md">
+      <div class="col-9">
+        <Alerts :list="alerts" />
+        <h2 class="text-h2 q-ml-md q-mb-none">
+          Processos em andamento
+        </h2>
+        <Processes :list="ongoingProcesses" />
+      </div>
+      <div class="col-3">
+        <!-- here the sidebar -->
+      </div>
+    </div>
   </q-page>
 </template>
 
